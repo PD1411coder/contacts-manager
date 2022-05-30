@@ -1,0 +1,12 @@
+git branch -M main
+------------------------------------
+git remote add origin repo-link
+
+----------------------------------------------
+
+git push -u origin main
+
+----------------------
+fetch the data
+
+git fetch || git pull
