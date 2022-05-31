@@ -1,9 +1,9 @@
 import React from 'react'
 
-const LandingPage = ({childern}) => {
+const LandingPage = ({children}) => {
   return (
     <>
-      <div className="landing_page-container">{childern}</div>
+      <div className="landing_page-container">{children}</div>
     </>
   );
 }
