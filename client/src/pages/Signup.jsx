@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import './Signup.css';
+import './Home.css';
 import AuthContext from "../context/AuthContext";
-
+import dots from "../photos/dots.svg";
+import topleft from "../photos/topleft.svg";
+import bottomright from "../photos/bottomright.svg";
 
 const Signup = () => {
 
@@ -45,11 +48,27 @@ const Signup = () => {
 
   return (
     <>
-      
-      <div className="logo-container">Logo</div>
-      <div className="message-container"></div>
+      <div className="outer-container">
+
+  <img src={topleft} alt="topleft" className="topleft" />
+
+  <div className="inner-container">
+
+    <div className="left">
+      <div className="leftsquare">
+        <img src={dots} alt="dotLeft" className="dots" />
+      </div>
+    </div>
+
+  <div className="inner-box">
+      <div className="signup-logo-container">
+        <p>Logo</p>
+      </div>
+      <div className="signup-message-container">
+        <p>Create New Account</p>
+      </div>
       <form action="" onSubmit={handleSubmit}>
-        <div>
+        <div className='signup-idbox'>
           <input
             type="email"
             id="signup_email"
@@ -60,7 +79,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className='signup-idbox'>
           <input
             type="password"
             id="signup_password"
@@ -71,7 +90,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className='signup-idbox'>
           <input
             type="password"
             id="confirm-password"
@@ -83,9 +102,22 @@ const Signup = () => {
           />
         </div>
         <div>
-          <button type="submit">Sign Up</button>
+          <button id='signup-button' type="submit">Sign Up</button>
         </div>
       </form>
+      </div>
+
+        <div className="right">
+          <div className="rightsquare">
+            <img src={dots} alt="dotright" className="dots" />
+          </div>
+        </div>
+        
+      </div> 
+
+      <img src={bottomright} alt="bottomright" className="bottomright" />     
+
+    </div>
     </>
   );
 };
