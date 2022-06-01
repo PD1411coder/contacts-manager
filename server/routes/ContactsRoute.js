@@ -18,33 +18,110 @@ const FileStorage = multer.diskStorage({
 const upload = multer({ storage: FileStorage });
 
 //post the contacts through csv
-router.post("/contactpost", upload.single("file"), async (req, res) => {
+router.post("/contactpost", fetchuser, upload.single("file"), async (req, res) => {
   console.log(req.file);
   const file = req.file;
   await csvtojson()
     .fromFile(`./public/uploads/${file.filename}`)
     .then((csvdata) => {
       console.log(csvdata);
-      Contacts.insertMany(csvdata)
-        .then(function () {
-          console.log("Data inserted");
-          res.json({ success: "success" });
-        })
-        .catch(function (err) {
-          console.log(err);
+      // Contacts.user = req.user._id;
+      lengthCsv = csvdata.length;
+      for (let i = 0; i < lengthCsv; i++) {
+        const newContact = new Contacts({
+            name: csvdata[i].name,
+            destination: csvdata[i].destination,
+            company: csvdata[i].company,
+            industry: csvdata[i].industry,
+            email: csvdata[i].email,
+            phonenumber: csvdata[i].phonenumber,
+            country: csvdata[i].country,
+            user: req.user._id,
         });
+        newContact.save();
+      }
     });
+    if (req.file) {
+      res.json({
+        message: "file uploaded",
+      });
+    }
+    else{
+      res.json({
+        message: "file not uploaded",
+      });
+    }
+//   res.json({ message: "success" });
 });
-// get the contacts
-router.get("/getuser", async function (req, res) {
+
+
+      // try {
+      //   // for (i = 0; i < lengthCsv; i++) {
+      //   //   const {
+      //   //     name,
+      //   //     destination,
+      //   //     company,
+      //   //     industry,
+      //   //     email,
+      //   //     phonenumber,
+      //   //     country,
+      //   //   } = csvdata[i];
+      //   //   const newContact = new Contacts({
+      //   //     name,
+      //   //     destination,
+      //   //     company,
+      //   //     industry,
+      //   //     email,
+      //   //     phonenumber,
+      //   //     country,
+      //   //     user: req.user._id,
+      //   //   });
+      //   //   const result = newContact.save();
+      //   // }
+      //   res.status(200).json({
+      //     message: "Contacts added successfully",
+      //     ...result._doc,
+      //   });
+      // } catch (err) {
+      //   res.status(500).json({
+      //     error: err,
+      //   });
+      // }
+
+      // Contacts.insertMany(csvdata)
+      //   .then(function () {
+      //     console.log("Data inserted");
+      //     res.json({ success: "success" });
+      //   })
+      //   .catch(function (err) {
+      //     console.log(err);
+      //   });
+//     });
+// });
+
+
+//fetch contacts
+
+router.get("/mycontacts", fetchuser, async (req, res) => {
   try {
-    const user = await Contacts.find();
-    res.json(user);
+    const mycontacts = await Contacts.find({ user: req.user._id }).populate(
+      "user",
+      "-password"
+    );
+    return res.status(200).json({
+      contacts: mycontacts,
+    });
   } catch (error) {
-    console.error(error)
-    res.status(404).send("contacts not found")
+    console.log(error);
   }
-});
+
+}
+);
+
+//delete a contact
+
+// router.delete()
+
 
 //update the contacts
 router.put('/contactupdate/:id', async function (req, res) {
@@ -76,9 +153,9 @@ router.put('/contactupdate/:id', async function (req, res) {
   if (!contact) {
     return res.status(404).send("Not Found");
   }
-  // if (contact.user.toString() !== req.user.id) {
-  //   return res.status(401).send("Not Allowed");
-  // }
+  if (contact.user.toString() !== req.user._id) {
+    return res.status(401).send("Not Allowed");
+  }
   contact = await Contacts.findByIdAndUpdate(
     req.params.id,
     { $set: newpost },
@@ -93,15 +170,16 @@ router.put('/contactupdate/:id', async function (req, res) {
 })
 
 // delete the contact
-router.delete('/contactdelete/:id', async function(req, res){
+router.delete('/contactdelete/:id', fetchuser, async function(req, res){
   try {
     let contact = await Contacts.findById(req.params.id);
     if (!contact) {
       return res.status(404).send("Not Found");
     }
-    // if (contact.user.toString() !== req.user.id) {
-    //   return res.status(401).send("Not Allowed");
-    // }
+    // console.log(req.user)
+    if (contact.user.toString() !== req.user._id) {
+      return res.status(401).send("Not Allowed");
+    }
     contact = await Contacts.findByIdAndDelete(req.params.id);
     res.json({ Success: "Deleted the post", contact });
   } catch (error) {

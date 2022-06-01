@@ -33,12 +33,16 @@ const Signup = () => {
       !credentials.password ||
       !credentials.confirmPassword
     ) {
-      alert(("please enter all the required fields!"));
+      alert(("Please enter all the required fields!"));
       return;
     }
 
     if (credentials.password !== credentials.confirmPassword) {
-      alert(("password does not match!"));
+      alert(("Password does not match!"));
+      return;
+    }
+    if (credentials.password.length < 8) {
+      alert("Password should be at least 8 characters long");
       return;
     }
 

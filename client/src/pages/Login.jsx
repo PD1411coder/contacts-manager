@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
 
     if (!credentials.email || !credentials.password) {
-      alert(("please enter all the required fields!"));
+      alert(("Please enter all the required fields!"));
       return;
     }
 
