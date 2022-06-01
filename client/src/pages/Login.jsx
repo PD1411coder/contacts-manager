@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
@@ -21,8 +21,8 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!credentials.email || !credentials.password) {
-      alert(("please enter all the required fields!"));
+    if (credentials.password.length <8) {
+      alert(("Password lenght should be atleast 8 characters!"));
       return;
     }
 

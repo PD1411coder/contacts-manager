@@ -11,8 +11,8 @@ const contactSchema = new schema({
   phonenumber: { type: String },
   country: { type: String },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
+    required: String
   },
 });
 

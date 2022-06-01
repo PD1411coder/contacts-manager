@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+// import { Link } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
@@ -25,17 +25,15 @@ const Signup = () => {
     event.preventDefault();
     console.log(credentials)
 
-    if (
-      !credentials.email ||
-      !credentials.password ||
-      !credentials.confirmPassword
-    ) {
-      alert(("please enter all the required fields!"));
+    
+
+    if (credentials.password !== credentials.confirmPassword) {
+      alert(("Password does not match!"));
       return;
     }
 
-    if (credentials.password !== credentials.confirmPassword) {
-      alert(("password does not match!"));
+    if (credentials.password.length <8) {
+      alert("Password lenght should be atleast 8 characters!");
       return;
     }
 

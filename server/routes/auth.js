@@ -5,6 +5,8 @@ const User = require('../models/User');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 
+
+//login route
 router.post('/login', async (req, res) => {
     
     const { email, password } = req.body;
@@ -12,6 +14,7 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({
             error: 'Please enter all fields'
         });
+        
     }
     const emailReg =
       /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+(.[a-zA-Z0-9]{2,4})?$/;
@@ -43,7 +46,7 @@ router.post('/login', async (req, res) => {
 
         const userData = {...user._doc, password: undefined};
         return res.status(200).json({
-            success: true,
+            success: "Logged in successfully!",
             token,
             userData
         });
@@ -60,6 +63,8 @@ router.post('/login', async (req, res) => {
     }
 
 });  
+
+//signup route
 router.post("/signup", async (req, res) =>{
     
     const { email, password } =req.body;
@@ -92,7 +97,7 @@ router.post("/signup", async (req, res) =>{
         const userAlreadyExist = await User.findOne({ email });
         if (userAlreadyExist) {
             return res.status(400).json({
-                error: "User does not exist"
+                error: "User already exists"
             });
         }
 

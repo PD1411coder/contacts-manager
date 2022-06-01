@@ -1,0 +1,218 @@
+.table-container {
+position: absolute;
+    width: 1449px;
+    height: 898px;
+    left: 255px;
+    top: 124px;
+
+    background: #FBFBFB;
+    border-radius: 15px;
+}
+
+table{
+    position: absolute;
+        width: 1449px;
+        height: 898px;
+        left: 255px;
+        top: 124px;
+    
+        background: #FBFBFB;
+        border-radius: 15px;
+}
+thead{
+    position: absolute;
+        width: 1409px;
+        height: 60px;
+        left: 21px;
+        top: 207px;
+    
+        background: #B3DFFF;
+        box-shadow: inset -1px -1px 20px rgba(254, 134, 39, 0.1), inset 1px 1px 20px rgba(254, 134, 39, 0.1);
+        border-radius: 10px;
+}
+.checkbox{
+    box-sizing: border-box;
+    
+        position: absolute;
+        width: 21px;
+        height: 21px;
+        left: 290px;
+        top: 226px;
+    
+        background: #FBF8F8;
+        border: 0.5px solid #2DA5FC;
+        border-radius: 3px;
+}
+.name{
+    position: absolute;
+        width: 51px;
+        height: 30px;
+        left: 326px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+        
+}
+
+.designation{
+    position: absolute;
+        width: 103px;
+        height: 30px;
+        left: 468px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+}
+.company{
+    position: absolute;
+        width: 80px;
+        height: 30px;
+        left: 644px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+}
+
+.industry{
+position: absolute;
+    width: 72px;
+    height: 30px;
+    left: 865px;
+    top: 222px;
+
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #38322C;
+
+    opacity: 0.8;
+}
+
+.email{
+position: absolute;
+    width: 48px;
+    height: 30px;
+    left: 1060px;
+    top: 222px;
+
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #38322C;
+
+    opacity: 0.8;
+}
+
+.phoneNumber{
+    position: absolute;
+        width: 180px;
+        height: 30px;
+        left: 1310px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+}
+.country{
+    position: absolute;
+        width: 68px;
+        height: 30px;
+        left: 1494px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+}
+
+.action{
+    position: absolute;
+        width: 55px;
+        height: 30px;
+        left: 1609px;
+        top: 222px;
+    
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    
+        color: #38322C;
+    
+        opacity: 0.8;
+}
+tbody{
+    position: absolute;
+        width: 1409px;
+        height: 63px;
+        left: 275px;
+        top: 336px;
+    
+        background: #FFFFFF;
+        box-shadow: 1px 1px 20px rgba(178, 223, 255, 0.43);
+        border-radius: 10px;
+}
+
+.dustbin{
+    left: 3.25%;
+        right: 60%;
+        top: 37.5%;
+        bottom: 25%;
+    
+        color: #F81D1D;
+
+}
+tr{
+position: absolute;
+    width: 1374px;
+    height: 27px;
+    right: 570px;
+    top: 354px;
+}
+
+
+
