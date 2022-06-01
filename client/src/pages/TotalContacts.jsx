@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {Table} from "antd";
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -80,3 +81,21 @@ const TotalContacts = () => {
 };
 
 export default TotalContacts;
+=======
+import React from 'react'
+import AuthContext from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom';
+import { useContext,useEffect } from 'react';
+
+export default function TotalContacts() {
+    const navigate = useNavigate();
+    const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+    !user && navigate("/", {replace: true});
+  }, []);
+  return (
+    <div></div>
+  )
+}
+>>>>>>> 0caaa142d454f28308aa10b0c8060e6785815efa

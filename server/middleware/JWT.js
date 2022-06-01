@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
-
+const JWT_SECRET = "iamagoodb$oy"
 const User = require("../models/User");
 
-module.exports = async (req, res, next) => {
+const fetchuser = async (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(" ")[1];
 
-        jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
+        jwt.verify(token, JWT_SECRET, async (err, payload) => {
             if(err){
                 return res.status(401).json({
                     error: "Unauthorized"
@@ -32,3 +32,4 @@ module.exports = async (req, res, next) => {
         });
     }
 }
+module.exports = fetchuser;
