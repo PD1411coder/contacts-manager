@@ -3,7 +3,6 @@ import{ useNavigate } from 'react-router-dom';
 import './Aside.css';
 import logout from '../photos/logout.svg';
 import dashboard from '../photos/dashboard.svg';
-import totalContacts from '../photos/totalContacts.svg';
 import totalContact from '../photos/totalContact.svg';
 import {motion} from 'framer-motion';
 

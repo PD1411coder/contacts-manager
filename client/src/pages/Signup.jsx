@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import './Signup.css';
+import React from "react";
 import './Home.css';
 import AuthContext from "../context/AuthContext";
 import dots from "../photos/dots.svg";

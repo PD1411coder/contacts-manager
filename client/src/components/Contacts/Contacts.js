@@ -1,33 +1,15 @@
-import React from 'react'
-// import AuthContext from '../context/AuthContext'
-// import { useNavigate } from 'react-router-dom';
-// import { useContext,useEffect } from 'react';
-import Aside from '../components/Aside';
-
-// export default function TotalContacts() {
-//     const navigate = useNavigate();
-//     const {user} = useContext(AuthContext);
-
-//     useEffect(() => {
-//     !user && navigate("/", {replace: true});
-//   }, []);
-//   return (
-//     <div>
-//       <Aside />
-//     </div>
-//   )
-// }
-
-
-
-// import React from "react";
-import "../components/Aside.css";
-// import Aside from '../components/Aside';
+import React from "react";
+import "./Contacts.css";
 
 const Contacts = () => {
   return (
     <div className="Contacts">
-     <Aside />
+      <div className="aside">
+        <h2>Logo</h2>
+        <p>Dashboard</p>
+        <p>Total Contacts</p>
+        <p id="logout">Logout</p>
+      </div>
 
       <div className="splitscreen">
         <div className="searchbar">
