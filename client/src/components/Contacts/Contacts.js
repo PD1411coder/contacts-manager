@@ -56,7 +56,7 @@ const Contacts = () => {
               <th className="column">Action</th>
             </thead>
             <tbody>
-              <tr>
+            <tr>
                 <td>
                   {" "}
                   <input type="checkbox" /> Nikhil
