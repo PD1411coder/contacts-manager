@@ -28,29 +28,30 @@ const Contacts = () => {
   };
   useEffect(() => {
     getuser(user.userData._id, contacts._id);
-  }, []);
-  // // delete the contact
-  // const deletecontact = async (requser, userid, id) => {
-  //   try {
-  //     if (userid === requser) {
-  //       const response = await fetch(
-  //         `http:localhost:5000/contactdelete/${id}`,
-  //         {
-  //           method: "DELETE",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             authorization: user.token,
-  //           },
-  //         }
-  //       );
-  //       const data = await response.json();
-  //       setcontacts(data);
-  //     } else {
-  //     }
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
+  });
+
+  // delete the contact
+  const deletecontact = async (requser, userid, id) => {
+    try {
+      if (userid === requser) {
+        const response = await fetch(
+          `http:localhost:5000/contactdelete/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: user.token,
+            },
+          }
+        );
+        const data = await response.json();
+        setcontacts(data);
+      } else {
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <div className="Contacts">
