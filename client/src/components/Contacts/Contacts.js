@@ -1,7 +1,57 @@
 import React from "react";
 import "./Contacts.css";
+import AuthContext from "../../context/AuthContext";
+// import Contactsmap from "./Contactsmap";
 
 const Contacts = () => {
+  const initialState = [];
+  const [contacts, setcontacts] = useState(initialState);
+  const { user } = useContext(AuthContext);
+  //get the contacts with particular user.
+  const getuser = async (requser, user) => {
+    try {
+      if (requser === user) {
+        const response = await fetch("http://localhost:5000/mycontacts", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: user.token,
+          },
+        });
+        const data = await response.json();
+        console.log(data);
+        setcontacts(data);
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+  useEffect(() => {
+    getuser(user.userData._id, contacts._id);
+  }, []);
+  // // delete the contact
+  // const deletecontact = async (requser, userid, id) => {
+  //   try {
+  //     if (userid === requser) {
+  //       const response = await fetch(
+  //         `http:localhost:5000/contactdelete/${id}`,
+  //         {
+  //           method: "DELETE",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             authorization: user.token,
+  //           },
+  //         }
+  //       );
+  //       const data = await response.json();
+  //       setcontacts(data);
+  //     } else {
+  //     }
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
+
   return (
     <div className="Contacts">
       <div className="aside">
@@ -56,10 +106,10 @@ const Contacts = () => {
               <th className="column">Action</th>
             </thead>
             <tbody>
-            <tr>
+              <tr>
                 <td>
                   {" "}
-                  <input type="checkbox" /> Nikhil
+                  <input type="checkbox" /> Nick
                 </td>
                 <td>FSD</td>
                 <td>10X</td>
