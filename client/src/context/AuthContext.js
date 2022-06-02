@@ -120,7 +120,8 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
+  // const logininitial = {}
 
   //login req
   const loginUser = async (userData) => {
