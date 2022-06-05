@@ -25,15 +25,18 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+      
     if (!credentials.email || !credentials.password) {
       alert(("Please enter all the required fields!"));
-      return;
-    }
+      return
+      ;
 
+    }
+    // console.log(localStorage)
     loginUser(credentials);
   };
 
+  
   return (
     <>
      <div className="outer-container">
@@ -87,7 +90,7 @@ const Login = () => {
       </form>
       </div>
 
-        <div className="right">
+        <div className="right-container">
           <div className="rightsquare">
             <img src={dots} alt="dotright" className="dots" />
           </div>

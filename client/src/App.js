@@ -16,6 +16,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} /> 
             <Route path='/contacts' element={<TotalContacts/>} />
+     
         </Routes>
       </AuthContextProvider>
       

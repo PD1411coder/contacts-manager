@@ -9,6 +9,7 @@ const fetchuser = async (req, res, next) => {
 
         jwt.verify(token, JWT_SECRET, async (err, payload) => {
             if(err){
+                console.log(err)
                 return res.status(401).json({
                     error: "Unauthorized"
                 });
