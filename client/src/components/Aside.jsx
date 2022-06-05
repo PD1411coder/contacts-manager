@@ -1,20 +1,20 @@
 import React from 'react';
-import{ useNavigate } from 'react-router-dom';
+// import{ useNavigate } from 'react-router-dom';
 import './Aside.css';
 import logout from '../photos/logout.svg';
 import dashboard from '../photos/dashboard.svg';
-import totalContacts from '../photos/totalContacts.svg';
 import totalContact from '../photos/totalContact.svg';
 import {motion} from 'framer-motion';
 
 const Aside = () => {
 
-    const navigate = useNavigate();
-
+    // const navigate = useNavigate();
     const handleClick = () => {
         navigate('/', {replace: true});
         localStorage.clear();
     }
+
+
   return (
     <aside className="aside">
       <div className="aside__container-logo">

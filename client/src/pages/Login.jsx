@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import './Login.css';
 import './Home.css';
+import React from "react";
 import AuthContext from "../context/AuthContext";
 import dots from "../photos/dots.svg";
 import topleft from "../photos/topleft.svg";
