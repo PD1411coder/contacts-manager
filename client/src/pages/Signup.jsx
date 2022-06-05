@@ -111,7 +111,7 @@ const Signup = () => {
       </form>
       </div>
 
-        <div className="right">
+        <div className="right-container">
           <div className="rightsquare">
             <img src={dots} alt="dotright" className="dots" />
           </div>

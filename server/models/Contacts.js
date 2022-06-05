@@ -4,11 +4,11 @@ const schema = mongoose.Schema;
 
 const contactSchema = new schema({
   name: { type: String },
-  destination: { type: String },
+  designation: { type: String },
   company: { type: String },
   industry: { type: String },
   email: { type: String },
-  phonenumber: { type: String },
+  phoneNumber: { type: String },
   country: { type: String },
   user: {
     type: mongoose.Schema.Types.ObjectId,

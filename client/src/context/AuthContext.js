@@ -112,7 +112,7 @@
 
 
 
-import  { createContext, useState } from "react";
+import  React, { useRef, createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -121,6 +121,7 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+
 
   //login req
   const loginUser = async (userData) => {
@@ -138,11 +139,17 @@ export const AuthContextProvider = ({ children }) => {
         console.log(result);
         localStorage.setItem("token", result.token);
         setUser(result.userData);
-        navigate("/contacts", { replace: true });
+        navigate("/contacts");
       } else {
+        setError(result.message);
+        setTimeout(()=> {
+          setError(null);
+        }, 3000);
+
       }
     } catch (err) {
       console.log(err);
+      
     }
   };
 

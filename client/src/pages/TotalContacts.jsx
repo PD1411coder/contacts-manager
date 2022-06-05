@@ -1,97 +1,29 @@
 import React from 'react'
-import AuthContext from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom';
-import { useContext,useEffect } from 'react';
+
 import Aside from '../components/Aside';
-
-// export default function TotalContacts() {
-//     const navigate = useNavigate();
-//     const {user} = useContext(AuthContext);
-
-//     useEffect(() => {
-//     !user && navigate("/", {replace: true});
-//   }, []);
-//   return (
-//     <div>
-//       <Aside />
-//     </div>
-//   )
-// }
-
-
-
-// import React from "react";
 import "../components/Aside.css";
-// import Aside from '../components/Aside';
 
-const Contacts = () => {
-  return (
-    <div className="Contacts">
-     <Aside />
+import Header from '../components/Header';
+import Contacts from '../components/Contacts';
+import { useState } from 'react';
 
-      <div className="splitscreen">
-        <div className="searchbar">
-          <h2 id="heading">Total Contacts</h2>
-          <input
-            id="search"
-            type="text"
-            className="search"
-            placeholder="search"
-          />
-          <img
-            id="image"
-            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
-            alt="img"
-          />
-          <div className="admin">
-            <p id="admin">Admin</p>
-            <p id="user">Normal User</p>
+
+const TotalContacts = () => {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+    return (
+      <>
+        <div className="totalcontact-container">
+          <Aside />
+          <div className="totalcontact-content">
+            <Header setSearchTerm={setSearchTerm} />
+            <hr />
+            <Contacts searchTerm={searchTerm} />
           </div>
         </div>
-        <div className="buttons">
-          <div className="left">
-            <button>Select Date</button>
-            <button>Filter</button>
-          </div>
-          <div className="right">
-            <button>Delete</button>
-            <button>Import</button>
-            <button>Export</button>
-          </div>
-        </div>
-        <div className="table">
-          <table>
-            <thead>
-              <th className="column">
-                {" "}
-                <input type="checkbox" /> Name
-              </th>
-              <th className="column">Designation</th>
-              <th className="column">Industry</th>
-              <th className="column">Email</th>
-              <th className="column">PhoneNumber</th>
-              <th className="column">Country</th>
-              <th className="column">Action</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {" "}
-                  <input type="checkbox" /> Nikhil
-                </td>
-                <td>FSD</td>
-                <td>10X</td>
-                <td>nikhilkamble390@gmail.com</td>
-                <td>7773946912</td>
-                <td>IND</td>
-                <td>delete</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-};
+      </>
+    );
+}
 
-export default Contacts;
+export default TotalContacts;
