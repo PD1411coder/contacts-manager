@@ -11,9 +11,17 @@ const fetchuser = require("./middleware/JWT");
 dotenv.config();
 
 app.use(express.json());
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// CORS configuration
+const corsOptions = {
+  origin: "https://939aac51.contact-manager-g1.pages.dev",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 
 //routes
 app.get("/", (req, res) => {
